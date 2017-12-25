@@ -22,11 +22,11 @@
     
     
   <url>
-    <loc>http://whutlichao.github.io/2017/12/25/design_patterns_2/</loc>
+    <loc>http://whutlichao.github.io/2017/12/25/design_patterns_1/</loc>
     <lastmod>2017-12-25T03:57:03.891Z</lastmod>
     <data>
         <display>
-        <title>设计模式二——创建型模式</title>
+        <title>设计模式一（Design Patterns）</title>
         <pubTime>2017-12-25T03:57:03.891Z</pubTime>
         
         <tag>java</tag>
@@ -79,11 +79,11 @@
 
     
   <url>
-    <loc>http://whutlichao.github.io/2017/12/25/design_patterns_1/</loc>
+    <loc>http://whutlichao.github.io/2017/12/25/design_patterns_2/</loc>
     <lastmod>2017-12-25T03:57:03.891Z</lastmod>
     <data>
         <display>
-        <title>设计模式一（Design Patterns）</title>
+        <title>设计模式二——创建型模式</title>
         <pubTime>2017-12-25T03:57:03.891Z</pubTime>
         
         <tag>java</tag>
@@ -98,16 +98,16 @@
 
     
   <url>
-    <loc>http://whutlichao.github.io/2017/12/25/gvim_config/</loc>
+    <loc>http://whutlichao.github.io/2017/12/25/framework_eventbus_1/</loc>
     <lastmod>2017-12-25T03:57:03.891Z</lastmod>
     <data>
         <display>
-        <title>gvim常用插件的安装及配置</title>
+        <title>android开源框架——eventbus（1）</title>
         <pubTime>2017-12-25T03:57:03.891Z</pubTime>
         
-        <tag>ubuntu</tag>
+        <tag>android</tag>
          
-        <tag>linux</tag>
+        <tag>框架</tag>
          
          
            
@@ -168,16 +168,16 @@
 
     
   <url>
-    <loc>http://whutlichao.github.io/2017/12/25/framework_eventbus_1/</loc>
+    <loc>http://whutlichao.github.io/2017/12/25/gvim_config/</loc>
     <lastmod>2017-12-25T03:57:03.891Z</lastmod>
     <data>
         <display>
-        <title>android开源框架——eventbus（1）</title>
+        <title>gvim常用插件的安装及配置</title>
         <pubTime>2017-12-25T03:57:03.891Z</pubTime>
         
-        <tag>android</tag>
+        <tag>ubuntu</tag>
          
-        <tag>框架</tag>
+        <tag>linux</tag>
          
          
            
