@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>gvim常用插件的安装及配置 | RoyceLee&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="之前一直在windows下coding，windows下强大的IDE使用起来得心应手，一旦转到ubuntu下会渴望有一个强大的IED来增加生产效率，使用了一段时间的atom后，在崩溃了多次后触碰了我的底线，基本已经被我打入了冷宫。所以决定拾取vim，查阅一番资料打造一个适合自己的IDE，好废话不多说，let’s do it. 语法高亮   写代码没有语法高亮那将是一种折磨，这个只需要在vim">
+<meta name="keywords" content="ubuntu,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gvim常用插件的安装及配置">
+<meta property="og:url" content="http://whutlichao.github.io/2017/12/25/gvim_config/index.html">
+<meta property="og:site_name" content="RoyceLee&#39;s blog">
+<meta property="og:description" content="之前一直在windows下coding，windows下强大的IDE使用起来得心应手，一旦转到ubuntu下会渴望有一个强大的IED来增加生产效率，使用了一段时间的atom后，在崩溃了多次后触碰了我的底线，基本已经被我打入了冷宫。所以决定拾取vim，查阅一番资料打造一个适合自己的IDE，好废话不多说，let’s do it. 语法高亮   写代码没有语法高亮那将是一种折磨，这个只需要在vim">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-25T03:57:03.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gvim常用插件的安装及配置">
+<meta name="twitter:description" content="之前一直在windows下coding，windows下强大的IDE使用起来得心应手，一旦转到ubuntu下会渴望有一个强大的IED来增加生产效率，使用了一段时间的atom后，在崩溃了多次后触碰了我的底线，基本已经被我打入了冷宫。所以决定拾取vim，查阅一番资料打造一个适合自己的IDE，好废话不多说，let’s do it. 语法高亮   写代码没有语法高亮那将是一种折磨，这个只需要在vim">
+  
+    <link rel="alternate" href="/atom.xml" title="RoyceLee&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">RoyceLee&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Rumours find no credence with a wise man</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://whutlichao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-gvim_config" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/25/gvim_config/" class="article-date">
+  <time datetime="2017-12-25T03:57:03.891Z" itemprop="datePublished">2017-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      gvim常用插件的安装及配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   之前一直在windows下coding，windows下强大的IDE使用起来得心应手，一旦转到ubuntu下会渴望有一个强大的IED来增加生产效率，使用了一段时间的atom后，在崩溃了多次后触碰了我的底线，基本已经被我打入了冷宫。所以决定拾取vim，查阅一番资料打造一个适合自己的IDE，好废话不多说，let’s do it.</p>
+<h2 id="语法高亮"><a href="#语法高亮" class="headerlink" title="语法高亮"></a>语法高亮</h2><p>   写代码没有语法高亮那将是一种折磨，这个只需要在vim的资源文件中进行配置即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">syntax <span class="built_in">enable</span></span><br><span class="line">syntax on</span><br><span class="line">colorscheme desert</span><br></pre></td></tr></table></figure></p>
+<p>   在~/.vimrc文件中增加下面内容即可。<br><a id="more"></a></p>
+<h2 id="程序跳转"><a href="#程序跳转" class="headerlink" title="程序跳转"></a>程序跳转</h2><p>   程序跳转就要用到tags文件了，tags文件需要提前生成，如何生成呢，这里就要用到ctags了，首先安装这个软件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install exuberant-ctags</span><br></pre></td></tr></table></figure></p>
+<p>   代码根目录下生成tags文件，这时候在代码根目录下就会生成一个tags文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctags -R</span><br></pre></td></tr></table></figure></p>
+<p>   如何使用这个tags文件呢，vim打开一个代码文件，将光标移动到一个调用函数上，<c+]>进行函数声明，<c+t>回到调用位置。</c+t></c+]></p>
+<h2 id="文件标签列表"><a href="#文件标签列表" class="headerlink" title="文件标签列表"></a>文件标签列表</h2><p>   插件：TagList，下载地址：<a href="http://www.vim.org/scripts/script.php?script_id=273" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=273</a><br>   ~/.vimrc中添加如下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> Tlist_Show_One_File=1</span><br><span class="line"><span class="built_in">let</span> Tlist_Exit_OnlyWindow=1</span><br></pre></td></tr></table></figure></p>
+<h2 id="文件浏览器窗口管理窗口"><a href="#文件浏览器窗口管理窗口" class="headerlink" title="文件浏览器窗口管理窗口"></a>文件浏览器窗口管理窗口</h2><p>   插件：WinManager，下载地址：<a href="http://www.vim.org/scripts/script.php?script_id=95" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=95</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> g:winManagerWindowLayout=<span class="string">'FileExplorer|TagList'</span></span><br><span class="line">nmap wm :WMToggle&lt;cr&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="全局搜索"><a href="#全局搜索" class="headerlink" title="全局搜索"></a>全局搜索</h2><p>   插件：Grep，下载：<a href="http://www.vim.org/scripts/script.php?script_id=311" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=311</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nnoremap &lt;silent&gt; &lt;F3&gt; :Grep&lt;CR&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://whutlichao.github.io/2017/12/25/gvim_config/" data-id="cjblsf39a0005bx3d7lvl9owt" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/25/design_patterns_3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          设计模式三——结构型模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/25/framework_eventbus_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">android开源框架——eventbus（1）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/framework/">framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/框架/">框架</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/framework/" style="font-size: 20px;">framework</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/25/android_virtual/">android虚拟化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_2/">设计模式二——创建型模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_4/">设计模式四——行为模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_3/">设计模式三——结构型模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/gvim_config/">gvim常用插件的安装及配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 RoyceLee<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>设计模式四——行为模式 | RoyceLee&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="接上篇总结行为模式 模板方法模式（Template Mothod）状态模式（State）策略模式（Strategy）职责链模式（Chain of Responsibility）命令模式（Command）访问模式（Visitor）调停者模式（Mediator）备忘录模式（Memento）迭代器模式（Iterator）解释器模式（Interpreter）">
+<meta name="keywords" content="java,framework">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式四——行为模式">
+<meta property="og:url" content="http://whutlichao.github.io/2017/12/25/design_patterns_4/index.html">
+<meta property="og:site_name" content="RoyceLee&#39;s blog">
+<meta property="og:description" content="接上篇总结行为模式 模板方法模式（Template Mothod）状态模式（State）策略模式（Strategy）职责链模式（Chain of Responsibility）命令模式（Command）访问模式（Visitor）调停者模式（Mediator）备忘录模式（Memento）迭代器模式（Iterator）解释器模式（Interpreter）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-25T03:57:03.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式四——行为模式">
+<meta name="twitter:description" content="接上篇总结行为模式 模板方法模式（Template Mothod）状态模式（State）策略模式（Strategy）职责链模式（Chain of Responsibility）命令模式（Command）访问模式（Visitor）调停者模式（Mediator）备忘录模式（Memento）迭代器模式（Iterator）解释器模式（Interpreter）">
+  
+    <link rel="alternate" href="/atom.xml" title="RoyceLee&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">RoyceLee&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Rumours find no credence with a wise man</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://whutlichao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-design_patterns_4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/25/design_patterns_4/" class="article-date">
+  <time datetime="2017-12-25T03:57:03.891Z" itemprop="datePublished">2017-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设计模式四——行为模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   接上篇总结行为模式</p>
+<h2 id="模板方法模式（Template-Mothod）"><a href="#模板方法模式（Template-Mothod）" class="headerlink" title="模板方法模式（Template Mothod）"></a>模板方法模式（Template Mothod）</h2><h2 id="状态模式（State）"><a href="#状态模式（State）" class="headerlink" title="状态模式（State）"></a>状态模式（State）</h2><h2 id="策略模式（Strategy）"><a href="#策略模式（Strategy）" class="headerlink" title="策略模式（Strategy）"></a>策略模式（Strategy）</h2><h2 id="职责链模式（Chain-of-Responsibility）"><a href="#职责链模式（Chain-of-Responsibility）" class="headerlink" title="职责链模式（Chain of Responsibility）"></a>职责链模式（Chain of Responsibility）</h2><h2 id="命令模式（Command）"><a href="#命令模式（Command）" class="headerlink" title="命令模式（Command）"></a>命令模式（Command）</h2><h2 id="访问模式（Visitor）"><a href="#访问模式（Visitor）" class="headerlink" title="访问模式（Visitor）"></a>访问模式（Visitor）</h2><h2 id="调停者模式（Mediator）"><a href="#调停者模式（Mediator）" class="headerlink" title="调停者模式（Mediator）"></a>调停者模式（Mediator）</h2><h2 id="备忘录模式（Memento）"><a href="#备忘录模式（Memento）" class="headerlink" title="备忘录模式（Memento）"></a>备忘录模式（Memento）</h2><h2 id="迭代器模式（Iterator）"><a href="#迭代器模式（Iterator）" class="headerlink" title="迭代器模式（Iterator）"></a>迭代器模式（Iterator）</h2><h2 id="解释器模式（Interpreter）"><a href="#解释器模式（Interpreter）" class="headerlink" title="解释器模式（Interpreter）"></a>解释器模式（Interpreter）</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://whutlichao.github.io/2017/12/25/design_patterns_4/" data-id="cjblsf3900003bx3dpjqfm3sf" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/">framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/25/design_patterns_2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          设计模式二——创建型模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/25/design_patterns_3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">设计模式三——结构型模式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/framework/">framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/框架/">框架</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/framework/" style="font-size: 20px;">framework</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/25/android_virtual/">android虚拟化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_2/">设计模式二——创建型模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_4/">设计模式四——行为模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_3/">设计模式三——结构型模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/gvim_config/">gvim常用插件的安装及配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 RoyceLee<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu安装android-studio | RoyceLee&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装JDK1、由于我一键安装android-studio时openJDK依赖关系发生错误，所以这里手动下载JDK，先选Accept License Agreement后可下载。我的Linux系统为ubuntukylin 16.04 64位的，所以选择64位的版本。 2、进入默认的下载目录下 home/下载/ 进行解压文件1$ tar -zxvf jdk-8u91-linux-x64.tar.gz">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu安装android-studio">
+<meta property="og:url" content="http://whutlichao.github.io/2017/12/25/ubuntu_android-studio/index.html">
+<meta property="og:site_name" content="RoyceLee&#39;s blog">
+<meta property="og:description" content="安装JDK1、由于我一键安装android-studio时openJDK依赖关系发生错误，所以这里手动下载JDK，先选Accept License Agreement后可下载。我的Linux系统为ubuntukylin 16.04 64位的，所以选择64位的版本。 2、进入默认的下载目录下 home/下载/ 进行解压文件1$ tar -zxvf jdk-8u91-linux-x64.tar.gz">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-25T03:57:03.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu安装android-studio">
+<meta name="twitter:description" content="安装JDK1、由于我一键安装android-studio时openJDK依赖关系发生错误，所以这里手动下载JDK，先选Accept License Agreement后可下载。我的Linux系统为ubuntukylin 16.04 64位的，所以选择64位的版本。 2、进入默认的下载目录下 home/下载/ 进行解压文件1$ tar -zxvf jdk-8u91-linux-x64.tar.gz">
+  
+    <link rel="alternate" href="/atom.xml" title="RoyceLee&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">RoyceLee&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Rumours find no credence with a wise man</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://whutlichao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ubuntu_android-studio" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/25/ubuntu_android-studio/" class="article-date">
+  <time datetime="2017-12-25T03:57:03.891Z" itemprop="datePublished">2017-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu安装android-studio
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h2><p>1、由于我一键安装android-studio时openJDK依赖关系发生错误，所以这里手动下载JDK，先选Accept License Agreement后可下载。我的Linux系统为ubuntukylin 16.04 64位的，所以选择64位的版本。</p>
+<p>2、进入默认的下载目录下 home/下载/ 进行解压文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf jdk-8u91-linux-x64.tar.gz &amp;&amp; sudo mv jdk1.8.0_91 /opt</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>3、配置jdk环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>   在文件最后加上以下内容，注意自己的jdk路径：<br>   export JAVA_HOME=/opt/jdk1.8.0_91<br>   export JRE_HOME=${JAVA_HOME}/jre<br>   export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:${JAVA_HOME}/lib/tools.jar<br>   export PATH=${JAVA_HOME}/bin:$PATH  </p>
+<p>4、在该全件最后也添加3中内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /home/lc/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>5、同步更新3、4中的两个文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> /etc/profile &amp;&amp; <span class="built_in">source</span> /home/lc/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>使用java -version测试下环境变量是否设置成功。</p>
+<h2 id="安装android-studio和sdk"><a href="#安装android-studio和sdk" class="headerlink" title="安装android-studio和sdk"></a>安装android-studio和sdk</h2><p>1、在www.android-studio.org中下载android-studio和sdk。同2中一样分别解压两个文件，但需要注意由于sdk以后会越来越大，所以建议将sdk解压到/home/下。防止根目录空间不足。</p>
+<p>2、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /opt/android-studio/bin/idea.porperties</span><br></pre></td></tr></table></figure></p>
+<p>在最后添加disable.android.first.run=true 否则会因s为网络问题一直卡在”Fetching Android SDK component information”</p>
+<p>3、<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sh /opt/android-studio-XXXX/bin/studio.sh</span><br></pre></td></tr></table></figure></p>
+<p>在弹窗中分别配置jdk和sdk的路径，至此恭喜你安装完成。</p>
+<p>4、安装完成后需要安装不同版本的sdk，启动sdk有两种方式：<br>    1）在${SDK_HOME}/tools/下执行./android，就可以单独启动sdk进行不同版本SDK的安装，若出现网络问题，www.android-studio.org上有代理教程可以设置代理进行下载。<br>    2）在android-studio中直接启动SDK。</p>
+<p>5、设置adb环境变量，在/etc/profile最后面加上如下内容，同步更新这个文件即可：<br>    export PATH=$PATH:/home/lc/android-sdk-linux/tools/<br>    export PATH=$PATH:/home/lc/android-sdk-linux/platform-tools/</p>
+<h2 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h2><p>1、由于64位ubuntu在编译打包APK时缺少X86下的C++语言库，所以需要安装库先：<br>    sudo apt-get install lib32stdc++6 lib32z1，否则会报如下错误：<br>    java.io.IOException: Cannot run program “/home/lc/workspace/android-sdk-linux/build-tools/23.0.2/aapt”: error=2, 没有那个文件或目录</p>
+<p>2、如果monitor中报错提示：pls config SDK，同时project structure中提示：ndk does not contain any platforms，则需要对ndk进行更新，否则gradle同步时会报系统内部错误。</p>
+<p>3、如果存在android升级不生效，升级包下载后不重启的问题，则需要在/etc/profile中将${ANDOIR_STUDIO_HOME}/bin添加到环境变量中，因为找不到studio.sh，所以下载完升级包后无法自动重启升级。</p>
+<p>到这里ubuntu上的android开发环境基本已经大功告成，可以尽情的玩耍了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://whutlichao.github.io/2017/12/25/ubuntu_android-studio/" data-id="cjblsf3a2000wbx3dnuf4hzos" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/25/design_patterns_1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          设计模式一（Design Patterns）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/25/ubuntu_hexo_blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">ubuntu下用hexo搭建静态博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/framework/">framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/框架/">框架</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/framework/" style="font-size: 20px;">framework</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/25/android_virtual/">android虚拟化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_2/">设计模式二——创建型模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_4/">设计模式四——行为模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_3/">设计模式三——结构型模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/gvim_config/">gvim常用插件的安装及配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 RoyceLee<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

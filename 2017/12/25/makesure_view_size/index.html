@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>android怎么确定view的大小的 | RoyceLee&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在原生android应用中，我们知道所有的布局元素都继承自View，我们可以在布局文件中定义一个视图的大小，通常有三种类型：  1、填充父控件1android:layout_width = &quot;match_parent&quot;   2、使用固定大小1android:layout_width = &quot;50dp&quot;   3、内容包裹1android:layout_width = &quot;warp_content&quot;">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android怎么确定view的大小的">
+<meta property="og:url" content="http://whutlichao.github.io/2017/12/25/makesure_view_size/index.html">
+<meta property="og:site_name" content="RoyceLee&#39;s blog">
+<meta property="og:description" content="在原生android应用中，我们知道所有的布局元素都继承自View，我们可以在布局文件中定义一个视图的大小，通常有三种类型：  1、填充父控件1android:layout_width = &quot;match_parent&quot;   2、使用固定大小1android:layout_width = &quot;50dp&quot;   3、内容包裹1android:layout_width = &quot;warp_content&quot;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-25T03:57:03.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android怎么确定view的大小的">
+<meta name="twitter:description" content="在原生android应用中，我们知道所有的布局元素都继承自View，我们可以在布局文件中定义一个视图的大小，通常有三种类型：  1、填充父控件1android:layout_width = &quot;match_parent&quot;   2、使用固定大小1android:layout_width = &quot;50dp&quot;   3、内容包裹1android:layout_width = &quot;warp_content&quot;">
+  
+    <link rel="alternate" href="/atom.xml" title="RoyceLee&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">RoyceLee&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Rumours find no credence with a wise man</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://whutlichao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-makesure_view_size" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/25/makesure_view_size/" class="article-date">
+  <time datetime="2017-12-25T03:57:03.891Z" itemprop="datePublished">2017-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      android怎么确定view的大小的
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  在原生android应用中，我们知道所有的布局元素都继承自View，我们可以在布局文件中定义一个视图的大小，通常有三种类型：<br>  1、填充父控件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:layout_width = "match_parent"</span><br></pre></td></tr></table></figure></p>
+<p>  2、使用固定大小<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:layout_width = "50dp"</span><br></pre></td></tr></table></figure></p>
+<p>  3、内容包裹<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:layout_width = "warp_content"</span><br></pre></td></tr></table></figure></p>
+<p>  那么问题来了，android是怎么来判断和确定控件的大小的呢？<br><a id="more"></a></p>
+<h2 id="模式与大小"><a href="#模式与大小" class="headerlink" title="模式与大小"></a>模式与大小</h2><p>  写过自定义控件的小伙伴们应该知道，在重写onMeasure方法时我们一上来基本就会获取组件的宽、高的模式和大小<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> widthMode = MeasureSpec.getMode(widthMeasureSpec);</span><br><span class="line"><span class="keyword">int</span> heightMode = MeasureSpec.getMode(heightMeasureSpec);</span><br><span class="line"><span class="keyword">int</span> widthSize = MeasureSpec.getSize(widthMeasureSpec);</span><br><span class="line"><span class="keyword">int</span> heightSize = MeasureSpec.getSize(heightMeasureSpec);</span><br></pre></td></tr></table></figure></p>
+<p>  这里的模式和大小分别指什么呢，并且这些大小信息是怎么缓存在内存中的呢，我们在万恶的View超类中找到了这么一个内部类，控件的测量信<br>  息就是存放在这个内部类实例中：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MeasureSpec</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MODE_SHIFT = <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MODE_MASK = <span class="number">0x3</span> &lt;&lt; MODE_SHIFT;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 下面三个静态变量就是对控件显示模式的定义</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> UNSPECIFIED = <span class="number">0</span> &lt;&lt; MODE_SHIFT;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> EXACTLY = <span class="number">1</span> &lt;&lt; MODE_SHIFT;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> AT_MOST = <span class="number">2</span> &lt;&lt; MODE_SHIFT;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">makeMeasureSpec</span><span class="params">(<span class="keyword">int</span> size, <span class="keyword">int</span> mode)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (sUseBrokenMakeMeasureSpec) &#123;</span><br><span class="line">            <span class="keyword">return</span> size + mode;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (size &amp; ~MODE_MASK) | (mode &amp; MODE_MASK);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getMode</span><span class="params">(<span class="keyword">int</span> measureSpec)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (measureSpec &amp; MODE_MASK);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">(<span class="keyword">int</span> measureSpec)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (measureSpec &amp; ~MODE_MASK);</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  我们来一一分析下这个类：<br>  1、MODE_SHIFT：位运算的的规模，也就是位运算多少位。<br>  2、MODE_MASK：模式位运算基 1100 0000 0000 0000 0000 0000 0000 0000<br>  3、控件显示模式<br>  a)放任自流模式，你想多大给你多大，不指定大小<br>  UNSPECIFIED：0000 0000 0000 0000 0000 0000 0000 0000<br>  b)精确模式，完全由父控件约整子控件的大小，match_parent<br>  EXACTLY：0100 0000 0000 0000 0000 0000 0000 0000<br>  c)伸缩不自如模式，当控件定义的大小超过父控件，则使用父控件的大小，否则使用自己定义的大小，warp_content/具体大小<br>  AT_MOST：1000 0000 0000 0000 0000 0000 0000 0000</p>
+<p>  在View的这个方法中，我们也可以充分理解下这三种模式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  size 控件想要的大小，也就是你布局文件里想要定义的大小</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  measureSpec 父控件的约束大小</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">resolveSizeAndState</span><span class="params">(<span class="keyword">int</span> size, <span class="keyword">int</span> measureSpec, <span class="keyword">int</span> childMeasuredState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> specMode = MeasureSpec.getMode(measureSpec);</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> specSize = MeasureSpec.getSize(measureSpec);</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> result;</span><br><span class="line">    <span class="keyword">switch</span> (specMode) &#123;</span><br><span class="line">        <span class="keyword">case</span> MeasureSpec.AT_MOST: <span class="comment">// 父控件大小或自定义的大小，完全取决与哪个小</span></span><br><span class="line">            <span class="keyword">if</span> (specSize &lt; size) &#123;</span><br><span class="line">                result = specSize | MEASURED_STATE_TOO_SMALL;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                result = size;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> MeasureSpec.EXACTLY:<span class="comment">// 就是父控件的大小</span></span><br><span class="line">            result = specSize;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> MeasureSpec.UNSPECIFIED: <span class="comment">// 定义的多大就给你多大</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            result = size;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result | (childMeasuredState &amp; MEASURED_STATE_MASK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  到此我们就会发现，android是将模式和控件大小放到一个32位的二进制数中，前两位代表的模式，后30位是大小。<br>  4、makeMeasureSpec、getMode、getSize<br>  生成测测信息、获取模式和获取大小，这三个方法就是一堆与或运算，这里没什么好讲的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://whutlichao.github.io/2017/12/25/makesure_view_size/" data-id="cjblsf39h0009bx3dt57xr3xs" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/25/framework_eventbus_1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          android开源框架——eventbus（1）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/25/design_patterns_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">设计模式一（Design Patterns）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/framework/">framework</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/框架/">框架</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/framework/" style="font-size: 20px;">framework</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/框架/" style="font-size: 10px;">框架</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/25/android_virtual/">android虚拟化</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_2/">设计模式二——创建型模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_4/">设计模式四——行为模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/design_patterns_3/">设计模式三——结构型模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/25/gvim_config/">gvim常用插件的安装及配置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 RoyceLee<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

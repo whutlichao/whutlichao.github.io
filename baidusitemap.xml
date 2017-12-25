@@ -20,17 +20,18 @@
     </url>
 
     
+    
   <url>
-    <loc>http://whutlichao.github.io/2017/12/25/framework_eventbus_1/</loc>
+    <loc>http://whutlichao.github.io/2017/12/25/design_patterns_4/</loc>
     <lastmod>2017-12-25T03:57:03.891Z</lastmod>
     <data>
         <display>
-        <title>android开源框架——eventbus（1）</title>
+        <title>设计模式四——行为模式</title>
         <pubTime>2017-12-25T03:57:03.891Z</pubTime>
         
-        <tag>android</tag>
+        <tag>java</tag>
          
-        <tag>框架</tag>
+        <tag>framework</tag>
          
          
            
@@ -59,35 +60,16 @@
 
     
   <url>
-    <loc>http://whutlichao.github.io/2017/12/25/design_patterns_1/</loc>
+    <loc>http://whutlichao.github.io/2017/12/25/gvim_config/</loc>
     <lastmod>2017-12-25T03:57:03.891Z</lastmod>
     <data>
         <display>
-        <title>设计模式一（Design Patterns）</title>
+        <title>gvim常用插件的安装及配置</title>
         <pubTime>2017-12-25T03:57:03.891Z</pubTime>
         
-        <tag>java</tag>
+        <tag>ubuntu</tag>
          
-        <tag>framework</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://whutlichao.github.io/2017/12/25/design_patterns_4/</loc>
-    <lastmod>2017-12-25T03:57:03.891Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式四——行为模式</title>
-        <pubTime>2017-12-25T03:57:03.891Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>framework</tag>
+        <tag>linux</tag>
          
          
            
@@ -133,16 +115,16 @@
 
     
   <url>
-    <loc>http://whutlichao.github.io/2017/12/25/gvim_config/</loc>
+    <loc>http://whutlichao.github.io/2017/12/25/design_patterns_1/</loc>
     <lastmod>2017-12-25T03:57:03.891Z</lastmod>
     <data>
         <display>
-        <title>gvim常用插件的安装及配置</title>
+        <title>设计模式一（Design Patterns）</title>
         <pubTime>2017-12-25T03:57:03.891Z</pubTime>
         
-        <tag>ubuntu</tag>
+        <tag>java</tag>
          
-        <tag>linux</tag>
+        <tag>framework</tag>
          
          
            
@@ -185,4 +167,22 @@
     </url>
 
     
+  <url>
+    <loc>http://whutlichao.github.io/2017/12/25/framework_eventbus_1/</loc>
+    <lastmod>2017-12-25T03:57:03.891Z</lastmod>
+    <data>
+        <display>
+        <title>android开源框架——eventbus（1）</title>
+        <pubTime>2017-12-25T03:57:03.891Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>框架</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
 </urlset>
